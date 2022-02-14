@@ -17,34 +17,11 @@ with open(inputFile, mode = "r") as inFile:
         if feedUrl[0] != "#":
             urls.append(feedUrl)
     
-print(urls)
-
 with open(outputFile, mode = "w") as outFile:
 
     for url in urls :
 
         feed = feedparser.parse(url)
         for entry in feed.entries:
-            # Titre
+            # Ecriture [Date publication] Titre
             outFile.write("[" + entry.published + "] " + entry.title +"\n")
-            print(entry.title)
-        # Date de publication
-            #outFile.write(entry.published)
-            print(entry.published)
-        # Permalink
-        # link = entry.link
-        # print(link)
-        # # Description sommaire
-        # summary = entry.summary
-        # print(summary)
-        # # Le contenu HTML
-        # content = entry.content
-        # #print(content)
-        # print('')
-
-
-
-
-# url = "https://korben.info/feed"
-
-# feed = feedparser.parse(url)
